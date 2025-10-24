@@ -523,12 +523,66 @@ Each shortcut has a defined mitigation path to transition toward production-grad
 
 ## 🚀 Scalability Plan
 
-| Metric | MVP Target | Strategy |
-|---------|-------------|-----------|
-| Users | 100K MAU | Horizontal scale pods |
-| API Throughput | 1K req/s | Load balancing + caching |
-| Data Volume | 10TB/year | Partitioning + archival |
-| Response Time | p95 < 500 ms | Redis + optimized queries |
+## 📈 Scalability Considerations
+
+This section outlines the scalability planning for the system, detailing the current MVP capacity and the future scale-out strategies across compute, caching, and database layers.
+
+---
+
+### ⚙️ Current MVP Capacity
+- Users: 100,000 monthly active users  
+- Concurrent Bookings: 500 simultaneous  
+- API Throughput: 1,000 requests per second  
+- Data Volume: Approximately 10 TB per year  
+
+---
+
+### 🧩 Scale-Out Strategy
+
+#### 🧱 Horizontal Scaling
+All services are designed as stateless containers, enabling elastic scaling based on demand:
+- Scale Journey Planning Service: 3–10 pods based on CPU utilization.  
+- Scale Integration Service: 2–8 pods based on request queue depth.  
+- Database: Use read replicas for query load and implement connection pooling.  
+
+---
+
+#### ⚡ Caching Strategy
+A three-tier caching model ensures performance and reduced load on backend systems:
+- L1 Cache: Application-level (in-memory, 1-minute TTL).  
+- L2 Cache: Redis cluster (5-minute TTL).  
+- L3 Cache: CDN for static content (24-hour TTL).  
+
+---
+
+#### 🗄️ Database Optimization
+Optimizations designed for high-throughput workloads and sustainable growth:
+- Indexing Strategy: Index all foreign keys and frequently queried fields.  
+- Partitioning: Bookings table partitioned by month for faster access.  
+- Archival: Move bookings older than 6 months to cold storage.  
+
+---
+
+#### ⏱️ Performance Targets
+Target metrics to maintain reliable performance under increasing loads:
+- API Response Time: p95 < 500 ms, p99 < 1 s.  
+- EDT Calculation: < 300 ms.  
+- ETA Update Frequency: Every 60 seconds.  
+- Booking Confirmation: < 2 seconds end-to-end.  
+
+---
+
+### 🧮 Summary Table
+
+| Category | Area | Key Details | Objective |
+|-----------|------|--------------|------------|
+| ⚙️ MVP Capacity | System Load | 100 K MAU, 500 concurrent bookings, 1 K RPS, 10 TB/year | Baseline capacity for MVP |
+| 🧱 Horizontal Scaling | Containers | Stateless services (3–10 pods / CPU, 2–8 pods / queue) | Enable elastic scaling |
+| ⚡ Caching | Multi-Level Cache | L1 (1 min), L2 (5 min), L3 (24 h CDN) | Reduce backend load |
+| 🗄️ Database | Optimization | Indexing, partitioning, archival > 6 months | Improve query efficiency |
+| ⏱️ Performance | Targets | p95 < 500 ms, p99 < 1 s, ETA 60 s | Maintain high performance |
+
+
 
 ---
 
