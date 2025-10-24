@@ -77,12 +77,15 @@ Shows interactions between:
 - Taxi App API
 - Priority Pass Platform
 - Payment Gateway
+![Context Diagram](diagrams/Context.svg)
 
 ### 🧰 Container Diagram
 Depicts high-level relationships between:
 - API Gateway  
 - Core microservices  
-- Databases and caches  
+- Databases and caches
+  
+![Container Diagram](diagram/Contain.svg)
 
 ### 🔧 Component Diagram (Journey Planner)
 Details:
@@ -90,6 +93,8 @@ Details:
 - Traffic API integration  
 - ETA, ETD and buffer calculations  
 - Caching tiers (in-memory, Redis)  
+
+![Component Diagram](diagram/Comp.svg)
 
 ---
 
