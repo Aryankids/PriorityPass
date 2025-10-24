@@ -79,7 +79,7 @@ Shows interactions between:
 - Payment Gateway
 
 <p align="center">
-  <img src="diagrams/C4 model example - Context.svg" alt="Context Diagram" width="500px">
+  <img src="diagrams/C4 model example - Context.svg" alt="Context Diagram" width="400px">
 </p>
 
 
@@ -88,8 +88,10 @@ Depicts high-level relationships between:
 - API Gateway  
 - Core microservices  
 - Databases and caches
-  
-![Container Diagram](diagram/Contain.svg)
+
+<p align="center">
+  <img src="diagrams/C4 model example - Context.svg" alt="Container Diagram" width="400px">
+</p>
 
 ### 🔧 Component Diagram (Journey Planner)
 Details:
@@ -98,7 +100,9 @@ Details:
 - ETA, ETD and buffer calculations  
 - Caching tiers (in-memory, Redis)  
 
-![Component Diagram](diagram/Comp.svg)
+<p align="center">
+  <img src="diagrams/C4 model example - Comp.svg" alt="Component Diagram" width="400px">
+</p>
 
 ---
 
