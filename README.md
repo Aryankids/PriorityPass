@@ -11,7 +11,7 @@
 5. [📦 Repository Contents](#-repository-contents)  
 6. [🧠 C4 Architecture](#-c4-architecture)  
 7. [🏗️ Architecture Overview](#️-architecture-overview)
-8. [🧱 T-Shirt Sizing – Container Diagram Components](#t-shirt-sizing--container-diagram-components)
+8. [🧱 T-Shirt Sizing – Container Diagram Components](#t-shirt-sizing--container-diagram-components) 
 10. [🧮 Core Components Deep Dive](#-core-components-deep-dive)  
 11. [🔐 PCI Compliance Strategy](#-pci-compliance-strategy)  
 12. [🕒 Deferred Features (MVP Exclusions)](#-deferred-features-mvp-exclusions)  
