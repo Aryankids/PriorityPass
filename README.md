@@ -15,7 +15,7 @@
 9. [🧮 Core Components Deep Dive](#-core-components-deep-dive)
 10. [🔐 PCI Compliance Strategy](#-pci-compliance-strategy)
 11. [🕒 Deferred Features (MVP Exclusions)](#-deferred-features-mvp-exclusions)
-12. [⚡ Technical Shortcuts & Mitigation](#️-technical-shortcuts--mitigation)
+12. [⚙️ Technical Shortcuts & Mitigation](#️-technical-shortcuts--mitigation)  
 13. [🚀 Scalability Plan](#-scalability-plan)
 14. [⚠️ Risk Assessment](#️-risk-assessment)
 15. [🤖 AI Tool Usage Reflection](#-ai-tool-usage-reflection)  
@@ -458,7 +458,7 @@ Certain features were intentionally deferred from the MVP (Minimum Viable Produc
 
 ---
 
-## ⚡ Technical Shortcuts & Mitigation
+## ⚙️ Technical Shortcuts & Mitigation
 
 Several technical shortcuts were intentionally taken for the MVP to accelerate delivery and reduce complexity.  
 Each shortcut has a defined mitigation path to transition toward production-grade robustness.
