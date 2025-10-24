@@ -124,7 +124,7 @@ The architecture follows five guiding principles:
 
 Our backend architecture uses a polyglot design, selecting the most suitable language and framework for each domain to optimise scalability, reliability, and developer productivity.
 
-- 🟩 **Node.js / Express** — *Inventory & Notification Services*  
+- 🟩 **Node.js / Express** — *Inventory & Notification Service*  
   **Why:** Fast I/O performance, excellent for API orchestration, and supported by a large ecosystem.  
   **Trade-off:** Less type safety than Java/C# (mitigated with TypeScript).
 
@@ -372,7 +372,7 @@ Our infrastructure is reduced to the SAQ-A scope, the simplest PCI self-assessme
 | Category | Control Area | Key Measures | Tools / Frameworks | Impact |
 |-----------|---------------|---------------|--------------------|---------|
 | 🔐 Data Handling | No Direct Card Data | Tokenization via hosted gateway | Stripe (PCI L1) | Removes card data from scope |
-| 🌐 Network Security | Network Segmentation | Isolated VPC for payment flows | AWS VPC | Limits access to payment services |
+| 🌐 Network Security | Network Segmentation | Isolated VPC for payment flows | AWS VPC | Limits access to payment service |
 | 🔑 Encryption | Data at Rest / In Transit | TLS 1.3, AWS KMS rotation | AWS KMS, PostgreSQL | Ensures confidentiality |
 | 🧾 Audit Logging | Immutable Audit Trail | Log every transaction action | Splunk / CloudWatch | Enables traceability |
 | 👥 Access Control | RBAC + MFA | Least privilege, MFA enforced | IAM, SSO | Prevents unauthorized access |
