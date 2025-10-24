@@ -79,10 +79,10 @@ Shows interactions between:
 - Payment Gateway
 
 <p align="center">
-  <img src="diagrams/Context.svg" alt="Context Diagram" width="800px">
+  <img src="diagrams/C4 model example - Context.svg" alt="Context Diagram" width="800px">
 </p>
 
-![Context Diagram](diagrams/Context.svg)
+![Context Diagram](diagrams/C4 model example - Context.svg)
 
 ### 🧰 Container Diagram
 Depicts high-level relationships between:
