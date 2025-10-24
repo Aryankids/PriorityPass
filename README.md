@@ -11,10 +11,8 @@
 5. [📦 Repository Contents](#-repository-contents)  
 6. [🧠 C4 Architecture](#-c4-architecture)  
 7. [🏗️ Architecture Overview](#️-architecture-overview)
-8. [🧱 T-Shirt Sizing – Container Diagram Components](#t-shirt-sizing--container-diagram-components)
-9. [🧱 T-Shirt Sizing – Container Diagram Components](#t-shirt-sizing--container-diagram-components)
-10. [🧱 T-Shirt Sizing – Container Diagram Components](#t-shirt-sizing-container-diagram-components)
-
+<a id="tshirt-sizing"></a>
+## 🧱 T-Shirt Sizing – Container Diagram Components
 11. [🧮 Core Components Deep Dive](#-core-components-deep-dive)  
 12. [🔐 PCI Compliance Strategy](#-pci-compliance-strategy)  
 13. [🕒 Deferred Features (MVP Exclusions)](#-deferred-features-mvp-exclusions)  
@@ -158,7 +156,7 @@ Our backend architecture uses a polyglot design, selecting the most suitable lan
 
 ---
 
-## 🧱 T-Shirt Sizing – Container Diagram Components
+[🧱 T-Shirt Sizing – Container Diagram Components](#tshirt-sizing)
 
 ### 💻 Client Applications
 
