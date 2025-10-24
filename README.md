@@ -32,7 +32,7 @@ The system enables **intelligent journey planning**, **cross-platform inventory 
 ## 💡 Key Value Propositions
 
 **👤 For Travellers:**  
-A single interface manages the full airport journey — from taxi booking to lounge access.  
+A single interface manages the full airport journey, from taxi booking to lounge access.  
 The system continuously calculates *Estimated Departure Time (EDT)* and provides real-time notifications, such as:
 - 🚕 *“Your taxi will arrive in 10 minutes.”*  
 - 🛫 *“Traffic is heavier than usual — consider leaving 20 minutes earlier.”*  
@@ -51,8 +51,8 @@ The **MVP** integrates one taxi partner.
 Future phases aim to include:
 - Multi-partner arbitration  
 - ML-driven EDT prediction  
-- Shared inventory APIs  
-- Integrated advertising  
+- Integrated advertising
+- Integrated BoardingPass
 
 ---
 
@@ -65,7 +65,6 @@ Future phases aim to include:
 
 ## 📦 Repository Contents
 - 🧱 C4 diagrams (Context, Container, Component)  
-- 👕 T-shirt sizing for major components  
 - ⚡ Lightweight **Next.js prototype snippets**  
 - 📘 Architecture rationale, PCI notes, and trade-offs  
 
@@ -75,11 +74,10 @@ Future phases aim to include:
 
 ### 🗺️ Context Diagram
 Shows interactions between:
-- Traveller
+- Passengers
 - Taxi App API
 - Priority Pass Platform
 - Payment Gateway
-- Lounge Management System  
 
 ### 🧰 Container Diagram
 Depicts high-level relationships between:
@@ -91,10 +89,8 @@ Depicts high-level relationships between:
 Details:
 - Flight data ingestion  
 - Traffic API integration  
-- ETA and buffer calculations  
+- ETA, ETD and buffer calculations  
 - Caching tiers (in-memory, Redis)  
-
-💡 *Tip:* Embed SVG/PNG diagrams (e.g., `/docs/architecture-context.svg`) directly in this section.
 
 ---
 
@@ -108,7 +104,6 @@ The architecture follows five guiding principles:
 4. **Data Segregation:** PostgreSQL (transactional), Redis (cache), MongoDB (documents).  
 5. **Platform Agnostic:** Services work for mobile, web, and partners.  
 
-💡 *Suggestion:* Define ownership per service to reduce overlap.
 
 ---
 
