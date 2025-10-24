@@ -10,16 +10,16 @@
 4. [🧩 Assumptions](#-assumptions)  
 5. [📦 Repository Contents](#-repository-contents)  
 6. [🧠 C4 Architecture](#-c4-architecture)  
-7. [🏗️ Architecture Overview](#️-architecture-overview)  
-8. [👕 T-Shirt Sizing — Components](#-t-shirt-sizing--container-diagram-components)  
-9. [🧮 Core Components Deep Dive](#-core-components-deep-dive)  
-10. [🔐 PCI Compliance Strategy](#-pci-compliance-strategy)  
-11. [🕒 Deferred Features (MVP Exclusions)](#-deferred-features-mvp-exclusions)  
-12. [⚡ Technical Shortcuts & Mitigation](#️-technical-shortcuts--mitigation)  
-13. [🚀 Scalability Plan](#-scalability-plan)  
-14. [⚠️ Risk Assessment](#️-risk-assessment)  
-15. [🤖 AI Tool Usage Reflection](#-ai-tool-usage-reflection)  
-16. [📚 Best Practices Learned](#-best-practices-learned)
+7. [🏗️ Architecture Overview](#️-architecture-overview)
+8. [🏗️ Architecture Overview](#architecture-overview)
+9. [👕 T-Shirt Sizing — Components](#-t-shirt-sizing--container-diagram-components)  
+10. [🧮 Core Components Deep Dive](#-core-components-deep-dive)  
+11. [🔐 PCI Compliance Strategy](#-pci-compliance-strategy)  
+12. [🕒 Deferred Features (MVP Exclusions)](#-deferred-features-mvp-exclusions)  
+13. [⚡ Technical Shortcuts & Mitigation](#️-technical-shortcuts--mitigation)  
+14. [🚀 Scalability Plan](#-scalability-plan)  
+15. [⚠️ Risk Assessment](#️-risk-assessment)  
+16. [🤖 AI Tool Usage Reflection](#-ai-tool-usage-reflection)  
 
 ---
 
@@ -586,7 +586,6 @@ Target metrics to maintain reliable performance under increasing loads:
 
 ---
 
-## ⚠️ Risk Assessment
 ## ⚠️ Risk Assessment
 
 The following risks have been identified for both technical and business areas of the system. Each includes assessed probability, impact, and corresponding mitigation strategies.
