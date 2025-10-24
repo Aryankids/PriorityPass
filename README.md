@@ -9,17 +9,16 @@
 3. [🎯 Scope](#-scope)  
 4. [🧩 Assumptions](#-assumptions)  
 5. [📦 Repository Contents](#-repository-contents)  
-6. [🧠 C4 Architecture](#-c4-architecture)  
+6. [🧠 C4 Architecture](#-c4-architecture)
 7. [🏗️ Architecture Overview](#️-architecture-overview)
-<a id="tshirt-sizing"></a>
-## 🧱 T-Shirt Sizing – Container Diagram Components
-11. [🧮 Core Components Deep Dive](#-core-components-deep-dive)  
-12. [🔐 PCI Compliance Strategy](#-pci-compliance-strategy)  
-13. [🕒 Deferred Features (MVP Exclusions)](#-deferred-features-mvp-exclusions)  
-14. [⚡ Technical Shortcuts & Mitigation](#️-technical-shortcuts--mitigation)  
-15. [🚀 Scalability Plan](#-scalability-plan)  
-16. [⚠️ Risk Assessment](#️-risk-assessment)  
-17. [🤖 AI Tool Usage Reflection](#-ai-tool-usage-reflection)  
+8. [👕 T-Shirt Sizing — Components](#-t-shirt-sizing--container-diagram-components)  
+9. [🧮 Core Components Deep Dive](#-core-components-deep-dive)
+10. [🔐 PCI Compliance Strategy](#-pci-compliance-strategy)
+11. [🕒 Deferred Features (MVP Exclusions)](#-deferred-features-mvp-exclusions)
+12. [⚡ Technical Shortcuts & Mitigation](#️-technical-shortcuts--mitigation)
+13. [🚀 Scalability Plan](#-scalability-plan)
+14. [⚠️ Risk Assessment](#️-risk-assessment)
+15. [🤖 AI Tool Usage Reflection](#-ai-tool-usage-reflection)  
 
 ---
 
@@ -156,7 +155,7 @@ Our backend architecture uses a polyglot design, selecting the most suitable lan
 
 ---
 
-[🧱 T-Shirt Sizing – Container Diagram Components](#tshirt-sizing)
+## 👕 T-Shirt Sizing — Container Diagram Components
 
 ### 💻 Client Applications
 
