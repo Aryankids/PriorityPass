@@ -299,7 +299,7 @@ Pickup Time = Flight Departure
 | ⚙️ **Core Service** | System Monitoring Service | S | Logging and auditing setup | Existing frameworks |
 | 🗄️ **Data Layer** | PostgreSQL Setup (Booking/Lounge) | M | Schema, replication, backup | Transactional foundation |
 | 🗄️ **Data Layer** | NoSQL Setup (User) | M | Schema, replication, indexing | Monitoring, driver setup |
-| 🗄️ **Data Layer** | Redis Cache | S | Standard caching and eviction | Minimal customization |
+| 🗄️ **Data Layer** | Redis Cache | S | Standard caching and eviction | Minimal customisation |
 | 🗄️ **Data Layer** | Kafka / RabbitMQ | M | Event bus and async comms | Operational expertise |
 
 ---
@@ -371,12 +371,12 @@ Our infrastructure is reduced to the SAQ-A scope, the simplest PCI self-assessme
 
 | Category | Control Area | Key Measures | Tools / Frameworks | Impact |
 |-----------|---------------|---------------|--------------------|---------|
-| 🔐 Data Handling | No Direct Card Data | Tokenization via hosted gateway | Stripe (PCI L1) | Removes card data from scope |
+| 🔐 Data Handling | No Direct Card Data | Tokenisation via hosted gateway | Stripe (PCI L1) | Removes card data from scope |
 | 🌐 Network Security | Network Segmentation | Isolated VPC for payment flows | AWS VPC | Limits access to payment service |
 | 🔑 Encryption | Data at Rest / In Transit | TLS 1.3, AWS KMS rotation | AWS KMS, PostgreSQL | Ensures confidentiality |
 | 🧾 Audit Logging | Immutable Audit Trail | Log every transaction action | Splunk / CloudWatch | Enables traceability |
-| 👥 Access Control | RBAC + MFA | Least privilege, MFA enforced | IAM, SSO | Prevents unauthorized access |
-| 🧩 Scope Reduction | Tokenization | Gateway handles sensitive data | Stripe / PCI DSS | Reduces compliance scope |
+| 👥 Access Control | RBAC + MFA | Least privilege, MFA enforced | IAM, SSO | Prevents unauthorised access |
+| 🧩 Scope Reduction | Tokenisation | Gateway handles sensitive data | Stripe / PCI DSS | Reduces compliance scope |
 | 🧪 Validation | Continuous Compliance | Audits, scans, pentests, training | Third-party auditors | Maintains PCI DSS assurance |
 
 ---
@@ -387,7 +387,7 @@ Certain features were intentionally deferred from the MVP (Minimum Viable Produc
 
 ---
 
-### 🔐 1️⃣ Authentication & Authorization  
+### 🔐 1️⃣ Authentication & Authorisation  
 **Size:** M  
 **Omitted:** Full OAuth 2.0 implementation, JWT token management, and refresh token rotation.  
 **Why:** Focus on core integration logic for MVP.  
@@ -400,7 +400,7 @@ Certain features were intentionally deferred from the MVP (Minimum Viable Produc
 
 ---
 
-### 💱 2️⃣ Multi-Currency & Internationalization  
+### 💱 2️⃣ Multi-Currency & Internationalisation  
 **Size:** L  
 **Omitted:** Currency conversion, localised content, and regional pricing.  
 **Why:** Initial launch assumed to be in a single market (UK).  
@@ -461,9 +461,9 @@ Certain features were intentionally deferred from the MVP (Minimum Viable Produc
 
 | Category | Feature | Size | Omitted For MVP | Production Requirement | Estimated Effort |
 |-----------|----------|------|------------------|------------------------|------------------|
-| 🔐 Authentication | Authentication & Authorization | M | OAuth 2.0, JWT rotation | OAuth 2.0, API keys, rate limiting | 3–4 weeks |
-| 💱 Internationalization | Multi-Currency & Localization | L | Currency, localized content, regional pricing | Conversion service, i18n, regional payment methods | 6–8 weeks |
-| 🤖 Analytics & ML | Advanced Analytics & Machine Learning | L | Predictive ETAs, dynamic pricing, personalization | ML pipeline, A/B testing, real-time serving | 3–4 months |
+| 🔐 Authentication | Authentication & Authorisation | M | OAuth 2.0, JWT rotation | OAuth 2.0, API keys, rate limiting | 3–4 weeks |
+| 💱 Internationalisation | Multi-Currency & Localisation | L | Currency, localised content, regional pricing | Conversion service, i18n, regional payment methods | 6–8 weeks |
+| 🤖 Analytics & ML | Advanced Analytics & Machine Learning | L | Predictive ETAs, dynamic pricing, personalisation | ML pipeline, A/B testing, real-time serving | 3–4 months |
 | 📶 Offline | Offline Mode Support | M | Local caching, offline queue | IndexedDB/SQLite, background sync, conflict resolution | 4–6 weeks |
 | 🧭 Monitoring | Comprehensive Monitoring | S | Full observability, alerting | Tracing, dashboards, APM, on-call runbooks | 2–3 weeks |
 
@@ -591,7 +591,7 @@ Target metrics to maintain reliable performance under increasing loads:
 | ⚙️ MVP Capacity | System Load | 100 K MAU, 500 concurrent bookings, 1 K RPS, 10 TB/year | Baseline capacity for MVP |
 | 🧱 Horizontal Scaling | Containers | Stateless services (3–10 pods / CPU, 2–8 pods/queue) | Enable elastic scaling |
 | ⚡ Caching | Multi-Level Cache | L1 (1 min), L2 (5 min), L3 (24 h CDN) | Reduce backend load |
-| 🗄️ Database | Optimization | Indexing, partitioning, archival > 6 months | Improve query efficiency |
+| 🗄️ Database | Optimisation | Indexing, partitioning, archival > 6 months | Improve query efficiency |
 | ⏱️ Performance | Targets | p95 < 500 ms, p99 < 1 s, ETA 60 s | Maintain high performance |
 
 
@@ -611,7 +611,7 @@ The following risks have been identified for both technical and business areas o
 | External API reliability (flights, maps) | Medium | High | Circuit breakers, fallback data, SLA monitoring |
 | Payment gateway downtime | Low | Critical | Multiple payment providers, retry queue |
 | Traffic miscalculation leading to missed flights | Medium | Critical | Conservative buffers, real-time adjustments, insurance partnership |
-| Database performance degradation | Medium | High | Connection pooling, read replicas, query optimization |
+| Database performance degradation | Medium | High | Connection pooling, read replicas, query optimisation |
 | Third-party taxi API integration breaks | Medium | High | Abstraction layer, multiple taxi providers, health checks |
 
 ---
