@@ -90,7 +90,7 @@ Depicts high-level relationships between:
 - Databases and caches
 
 <p align="center">
-  <img src="diagrams/C4 model example - Contain.svg" alt="Container Diagram" width="500px">
+  <img src="diagrams/C4 model example - Contain.svg" alt="Container Diagram" width="800px">
 </p>
 
 ### 🔧 Component Diagram (Journey Planner)
@@ -101,7 +101,7 @@ Details:
 - Caching tiers (in-memory, Redis)  
 
 <p align="center">
-  <img src="diagrams/C4 model example - Comp.svg" alt="Component Diagram" width="600px">
+  <img src="diagrams/C4 model example - Comp.svg" alt="Component Diagram" width="800px">
 </p>
 
 ---
