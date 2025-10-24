@@ -494,7 +494,7 @@ Each shortcut has a defined mitigation path to transition toward production-grad
 **Risk:** Regional outages could affect all users and cause higher latency for distant users.  
 
 **Mitigation Path:**  
-- Phase 1: Deploy to EU-West-1.  
+- Phase 1: Deploy to EU-West-1 and US-East-1.  
 - Phase 2: Add read replicas in other regions.  
 - Phase 3: Implement multi-region active-active deployment with geo-routing.  
 
