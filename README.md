@@ -59,7 +59,7 @@ Future phases aim to include:
 ## 🧩 Assumptions
 - A **web application** will replicate the full functionality of the mobile experience.  
 - **Continuous EDT calculation** and correction are required.  
-- The **development team agrees** with provided effort estimates (T-shirt sizing).  
+- The **development team agrees** with the provided effort estimates (T-shirt sizing).  
 
 ---
 
@@ -110,7 +110,7 @@ The architecture follows five guiding principles:
 ### 🧰 Technical Stack Rationale
 #### ⚙️ Backend Services
 
-Our backend architecture uses a polyglot design — selecting the most suitable language and framework for each domain to optimize scalability, reliability, and developer productivity.
+Our backend architecture uses a polyglot design, selecting the most suitable language and framework for each domain to optimise scalability, reliability, and developer productivity.
 
 - 🟩 **Node.js / Express** — *Inventory & Notification Services*  
   **Why:** Fast I/O performance, excellent for API orchestration, and supported by a large ecosystem.  
@@ -118,7 +118,7 @@ Our backend architecture uses a polyglot design — selecting the most suitable 
 
 - 🐍 **Python / FastAPI** — *Journey Planning Service*  
   **Why:** Superior data science libraries for calculations, async support, and rapid development.  
-  **Trade-off:** Different runtime from Node services (acceptable for a specialized service).
+  **Trade-off:** Different runtime from Node services (acceptable for a specialised service).
 
 - ☕ **Java / Spring Boot** — *Booking Management Service*  
   **Why:** Strong transactional guarantees, mature payment integration libraries, and enterprise-grade reliability.  
@@ -156,30 +156,115 @@ Our backend architecture uses a polyglot design — selecting the most suitable 
 
 ---
 
-## 👕 T-Shirt Sizing — Container Diagram Components
+## 🧱 T-Shirt Sizing, Container Diagram Components
 
-### Full Descriptions
-- **Priority Pass App (L):** Adds taxi booking flow, journey timeline, cross-platform content.  
-- **API Gateway (S):** JWT authentication, routing, rate limiting.  
-- **Journey Planner (XL):** Real-time calculations and API integrations.  
-- **Inventory Sharing (M):** Cross-platform availability logic.  
-- **Booking Management (L):** Transactions, PCI compliance, refunds.  
-- **Lounge Management (M):** Lounge CRUD, archiving.  
-- **User Management (M):** Consent management and privacy controls.  
-- **Monitoring (S):** Logging, auditing, and alert segregation.  
+### 💻 Client Applications
 
-### Summary Table
-| Component | Size | Rationale | Dependencies |
-|------------|------|------------|---------------|
-| Priority Pass App Enhancement | L | New taxi & timeline UI | Existing app |
-| API Gateway | S | Auth, routing | JWT setup |
-| Journey Planner | XL | Real-time ETA | External APIs |
-| Inventory Sharing | M | Cross-platform sync | Cache layer |
-| Booking Management | L | Payments | Payment gateway |
-| Lounge Management | M | Lounge CRUD | Lounge schema |
-| User Management | M | Consent logic | User model |
-| Monitoring Service | S | Logging | Logging framework |
+- 📱 **Priority Pass Mobile App Enhancement**  
+  **Size:** L  
+  **Rationale:** Existing app needs a new taxi booking flow, journey timeline UI, and cross-platform content display.  
+  **Effort Includes:** UI/UX redesign, integration with new APIs, testing across iOS and Android, and app store submissions.  
+  **Dependencies:** High coordination with existing Priority Pass features.  
 
+---
+
+### 🌐 API Gateway Layer
+
+- 🔐 **API Gateway Configuration**  
+  **Size:** S  
+  **Rationale:** Standard AWS API Gateway setup with authentication and rate limiting.  
+  **Effort Includes:** Route configuration and JWT validation.  
+  **Dependencies:** Well-established patterns; configuration-heavy component.  
+
+---
+
+### ⚙️ Core Services
+
+- 🧭 **Journey Planner Service**  
+  **Size:** XL  
+  **Rationale:** Most complex service, involving real-time calculations and multiple external API integrations.  
+  **Effort Includes:** Flight tracking algorithms, ETA calculations with traffic, departure optimisation logic, and caching strategies.  
+  **Dependencies:** High complexity in time-based calculations and edge case handling (delays, cancellations).  
+  **Risk:** Performance-critical — directly impacts user experience.  
+
+- 🔄 **Inventory Sharing Service**  
+  **Size:** M  
+  **Rationale:** Handles inventory sharing and availability checks across platforms.  
+  **Effort Includes:** Data transformation, caching layer, and inventory versioning.  
+  **Dependencies:** Moderate — requires understanding of both platforms’ inventory models.  
+
+- 💳 **Booking Management Service**  
+  **Size:** L  
+  **Rationale:** Manages critical transactional workflows and PCI compliance requirements.  
+  **Effort Includes:** Booking state machine, payment integration, refund logic, and audit logging.  
+  **Dependencies:** High data integrity requirements and complex payment gateway integration.  
+
+- 🛋️ **Lounge Management Service**  
+  **Size:** M  
+  **Rationale:** Provides centralised management of lounges to streamline operations, maintain consistency, and ensure data integrity across the system
+  **Effort Includes:** Maintaining lounges, including deletion and archiving.  
+  **Dependencies:** Moderate — requires understanding of the lounge data model.  
+
+- 👥 **User Management Service**  
+  **Size:** M  
+  **Rationale:** Oversees user entity management across the platform, coordinating with authentication and consent services.  
+  **Effort Includes:** Maintaining users, including deletion and consent removal.  
+  **Dependencies:** Moderate — requires understanding of the user data model.  
+
+- 📊 **System Monitoring Service**  
+  **Size:** S  
+  **Rationale:** Provides standard logging and monitoring capabilities.  
+  **Effort Includes:** Configuring the service to maintain and segregate log levels and auditing data.  
+  **Dependencies:** Can leverage existing solutions and frameworks.  
+
+---
+
+### 🗄️ Data Layer
+
+- 🐘 **PostgreSQL Database Setup (Booking / Lounge)**  
+  **Size:** M  
+  **Rationale:** Schema design, migrations, and replication setup.  
+  **Effort Includes:** ERD design, indexing strategy, and backup/recovery procedures.  
+  **Dependencies:** Foundation for transactional data.  
+
+- 📦 **NoSQL Database Setup (User)**  
+  **Size:** M  
+  **Rationale:** Schema design, migrations, and replication setup.  
+  **Effort Includes:** Data modelling, schema validation, indexing and query optimisation, replication setup, and disaster recovery planning.
+  **Dependencies:** Monitoring, language-specific driver, and replication if needed.  
+
+- ⚡ **Redis Cache Setup (Availability Cache)**  
+  **Size:** S  
+  **Rationale:** Standard Redis deployment for caching.  
+  **Effort Includes:** Configuration, clustering (if needed), and eviction policies.  
+  **Dependencies:** Well-understood technology with minimal customisation.  
+
+- 📨 **Kafka / RabbitMQ (Event Bus)**  
+  **Size:** M  
+  **Rationale:** Serves as the event-driven architecture backbone, requiring careful topic design.  
+  **Effort Includes:** Topic configuration, consumer groups, dead letter queues, and monitoring.  
+  **Dependencies:** Critical for asynchronous communication and requires operational expertise.  
+
+---
+
+### 🔍 Core Component Deep Dive – Journey Planning Service (XL Complexity)
+
+**Responsibilities:**  
+- Calculate optimal taxi pickup times based on flight schedules.  
+- Provide real-time ETAs with traffic considerations.  
+- Track flight status and adjust recommendations dynamically.  
+- Manage time buffer calculations (check-in, security, lounge time).  
+
+**Why It’s the Most Complex:**  
+- Integrates multiple external APIs (flight data, maps/traffic).  
+- Real-time calculations under performance constraints (< 1s response).  
+- Handles complex edge cases (flight delays, traffic spikes, gate changes).  
+- Caching strategy must balance freshness and performance.  
+
+**Key Algorithm – Recommended Pickup Time:**  
+
+- Recommended Pickup Time = 
+ Flight Departure Time - Security Buffer (90 min) - Lounge Time (if booked, 45 min) - Current Travel Time (from Maps API) - Dynamic Traffic Buffer (15-30% of travel time) - Contingency Buffer (15 min)
 ---
 
 ## 🧮 Core Components Deep Dive
