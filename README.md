@@ -371,13 +371,91 @@ Our infrastructure is reduced to the SAQ-A scope, the simplest PCI self-assessme
 
 ## 🕒 Deferred Features (MVP Exclusions)
 
-| Feature | Reason | Future Implementation |
-|----------|---------|------------------------|
-| OAuth 2.0 | MVP focus | Auth Code Flow + API keys |
-| Multi-Currency | UK-only launch | FX + regional pricing |
-| Advanced Analytics & ML | Rule-based start | Predictive ETA, A/B testing |
-| Offline Mode | Reliable network | Local cache + sync |
-| Monitoring | Basic logs only | Distributed tracing, APM |
+Certain features were intentionally deferred from the MVP (Minimum Viable Product) to prioritise delivery of the core integration and booking experience. These items are planned for future production phases.
+
+---
+
+### 🔐 1️⃣ Authentication & Authorization  
+**Size:** M  
+**Omitted:** Full OAuth 2.0 implementation, JWT token management, and refresh token rotation.  
+**Why:** Focus on core integration logic for MVP.  
+
+**Production Requirement:**  
+- Implement OAuth 2.0 with Authorisation Code flow.  
+- Add API key management for partner integrations.  
+- Implement rate limiting per user or partner.  
+**Estimated Effort:** 3–4 weeks.  
+
+---
+
+### 💱 2️⃣ Multi-Currency & Internationalization  
+**Size:** L  
+**Omitted:** Currency conversion, localised content, and regional pricing.  
+**Why:** Initial launch assumed to be in a single market (UK).  
+
+**Production Requirement:**  
+- Develop a currency conversion service.  
+- Integrate a localisation framework (i18n).  
+- Add regional payment method support (Alipay, PayPal, etc.).  
+**Estimated Effort:** 6–8 weeks.  
+
+---
+
+### 🤖 3️⃣ Advanced Analytics & Machine Learning  
+**Size:** L  
+**Omitted:**  
+- Predictive ETA models (ML-based)  
+- Demand forecasting  
+- Dynamic pricing algorithms  
+- Personalised recommendations  
+**Why:** Start with rule-based algorithms and introduce ML enhancements later.  
+
+**Production Requirement:**  
+- Build an ML pipeline for traffic prediction.  
+- Establish an A/B testing framework.  
+- Create real-time model serving infrastructure.  
+**Estimated Effort:** 3–4 months (with data science team).  
+
+---
+
+### 📶 4️⃣ Offline Mode Support  
+**Size:** M  
+**Omitted:** Local data caching and offline action queue.  
+**Why:** Airport connectivity is expected to be reliable.  
+
+**Production Requirement:**  
+- Use IndexedDB or SQLite for local storage.  
+- Implement background sync once connectivity is restored.  
+- Add conflict resolution logic.  
+**Estimated Effort:** 4–6 weeks.  
+
+---
+
+### 🧭 5️⃣ Comprehensive Monitoring  
+**Size:** S  
+**Omitted:** Full observability stack, distributed tracing, and alerting system.  
+**Why:** MVP can start with basic logging and monitoring.  
+
+**Production Requirement:**  
+- Add distributed tracing (Zipkin).  
+- Develop metrics dashboard (Grafana).  
+- Integrate APM tool (DataDog or New Relic).  
+- Define on-call rotation and runbooks.  
+**Estimated Effort:** 2–3 weeks.  
+
+---
+
+### 🧩 Summary Table
+
+| Category | Feature | Size | Omitted For MVP | Production Requirement | Estimated Effort |
+|-----------|----------|------|------------------|------------------------|------------------|
+| 🔐 Authentication | Authentication & Authorization | M | OAuth 2.0, JWT rotation | OAuth 2.0, API keys, rate limiting | 3–4 weeks |
+| 💱 Internationalization | Multi-Currency & Localization | L | Currency, localized content, regional pricing | Conversion service, i18n, regional payment methods | 6–8 weeks |
+| 🤖 Analytics & ML | Advanced Analytics & Machine Learning | L | Predictive ETAs, dynamic pricing, personalization | ML pipeline, A/B testing, real-time serving | 3–4 months |
+| 📶 Offline | Offline Mode Support | M | Local caching, offline queue | IndexedDB/SQLite, background sync, conflict resolution | 4–6 weeks |
+| 🧭 Monitoring | Comprehensive Monitoring | S | Full observability, alerting | Tracing, dashboards, APM, on-call runbooks | 2–3 weeks |
+
+
 
 ---
 
