@@ -247,8 +247,9 @@ Our backend architecture uses a polyglot design, selecting the most suitable lan
 
 ---
 
-### 🔍 Core Component Deep Dive – Journey Planning Service (XL Complexity)
+### 🧮 Core Components Deep Dive
 
+#### 🚀 Journey Planning Service
 **Responsibilities:**  
 - Calculate optimal taxi pickup times based on flight schedules.  
 - Provide real-time ETAs with traffic considerations.  
@@ -260,21 +261,6 @@ Our backend architecture uses a polyglot design, selecting the most suitable lan
 - Real-time calculations under performance constraints (< 1s response).  
 - Handles complex edge cases (flight delays, traffic spikes, gate changes).  
 - Caching strategy must balance freshness and performance.  
-
-**Key Algorithm – Recommended Pickup Time:**  
-
-- Recommended Pickup Time = 
- Flight Departure Time - Security Buffer (90 min) - Lounge Time (if booked, 45 min) - Current Travel Time (from Maps API) - Dynamic Traffic Buffer (15-30% of travel time) - Contingency Buffer (15 min)
----
-
-## 🧮 Core Components Deep Dive
-
-### 🚀 Journey Planning Service
-**Responsibilities**
-- Compute optimal pickup times using live flight data.  
-- Adjust dynamically for delays and traffic.  
-- Manage time buffers (security, lounge, boarding).  
-
 **Key Algorithm**
 ```
 Pickup Time = Flight Departure 
@@ -284,8 +270,24 @@ Pickup Time = Flight Departure
              - Dynamic Traffic Buffer (15–30%)
              - Contingency (15 min)
 ```
+---
 
-💡 *Suggestion:* Introduce adaptive ML buffer tuning post-MVP.
+### 🧩 Summary Table
+
+| Category | Component | Size | Rationale | Key Dependencies |
+|-----------|------------|------|------------|------------------|
+| 💻 **Client App** | Priority Pass Mobile App Enhancement | L | New taxi booking flow, journey timeline UI, cross-platform content display | High coordination with existing PP features |
+| 🌐 **API Gateway** | API Gateway Configuration | S | Standard AWS setup with auth/rate limiting | Well-established configuration patterns |
+| ⚙️ **Core Service** | Journey Planner Service | XL | Real-time calculations, multi-API integration | High complexity, performance-critical |
+| ⚙️ **Core Service** | Inventory Sharing Service | M | Inventory availability across platforms | Understanding of both inventory models |
+| ⚙️ **Core Service** | Booking Management Service | L | Transactional workflows, PCI compliance | Payment gateway, data integrity |
+| ⚙️ **Core Service** | Lounge Management Service | M | Manage lounges | Lounge data model |
+| ⚙️ **Core Service** | User Management Service | M | Manage users and consent | User data model |
+| ⚙️ **Core Service** | System Monitoring Service | S | Logging and auditing setup | Existing frameworks |
+| 🗄️ **Data Layer** | PostgreSQL Setup (Booking/Lounge) | M | Schema, replication, backup | Transactional foundation |
+| 🗄️ **Data Layer** | NoSQL Setup (User) | M | Schema, replication, indexing | Monitoring, driver setup |
+| 🗄️ **Data Layer** | Redis Cache | S | Standard caching and eviction | Minimal customization |
+| 🗄️ **Data Layer** | Kafka / RabbitMQ | M | Event bus and async comms | Operational expertise |
 
 ---
 
