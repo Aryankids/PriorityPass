@@ -641,7 +641,7 @@ This section reflects on how AI tools were integrated during development — hig
 ### 🚀 What Worked Well
 - Rapid prototyping: Generated React UI in 30 minutes vs. 3+ hours of manual coding.  
 - Documentation templates: Structured README format suggestions saved time.  
-- Edge case identification: AI suggested scenarios that hadn’t been considered (e.g., flight cancellations, traffic anomalies).  
+- Edge case identification: AI suggested scenarios that hadn’t been considered (e.g., Refunds).  
 
 ---
 
@@ -649,7 +649,6 @@ This section reflects on how AI tools were integrated during development — hig
 - Technology choices: AI suggested trendy but inappropriate technologies (e.g., GraphQL when REST was sufficient).  
 - Business logic: Travel time buffer calculations required domain expertise.  
 - Security decisions: PCI compliance strategy demanded regulatory understanding beyond AI capabilities.  
-- Trade-off decisions: AI couldn’t weigh business priorities (e.g., speed to market vs. feature scope).  
 
 ---
 
