@@ -98,9 +98,9 @@ Details:
 
 ### 🧩 High-Level Design Philosophy
 The architecture follows five guiding principles:
-1. **Microservices Architecture:** Loosely coupled, domain-specific, independently deployable.  
-2. **Event-Driven Communication:** Real-time updates via async events.  
-3. **API-First Design:** REST APIs through a unified gateway.  
+1. **Microservices Architecture:** Services are loosely coupled, independently deployable, and focused on specific business capabilities
+2. **Event-Driven Communication:** Asynchronous events enable real-time updates without tight coupling
+3. **API-First Design:** All services expose REST APIs through a unified gateway
 4. **Data Segregation:** PostgreSQL (transactional), Redis (cache), MongoDB (documents).  
 5. **Platform Agnostic:** Services work for mobile, web, and partners.  
 
@@ -108,25 +108,51 @@ The architecture follows five guiding principles:
 ---
 
 ### 🧰 Technical Stack Rationale
-#### Backend
-| Service | Tech Stack | Rationale | Trade-off |
-|----------|-------------|------------|------------|
-| Inventory & Notifications | Node.js + Express | Fast I/O, orchestration | Less type safety |
-| Journey Planning | Python + FastAPI | Data/ML-friendly, async | Mixed runtime |
-| Booking Management | Java + Spring Boot | Strong transactions | Heavier footprint |
+#### ⚙️ Backend Services
 
-#### Data Layer
-| Storage | Purpose | Notes |
-|----------|----------|-------|
-| PostgreSQL | Bookings, lounges | ACID, geospatial |
-| MongoDB | Unstructured user data | Flexible schemas |
-| Redis | Cache layer | Sub-ms latency |
-| Kafka | Event streaming | Replay + scalability |
+Our backend architecture uses a polyglot design — selecting the most suitable language and framework for each domain to optimize scalability, reliability, and developer productivity.
 
-#### Mobile
-- **React Native:** One codebase, faster iterations, large developer pool.  
+- 🟩 **Node.js / Express** — *Inventory & Notification Services*  
+  **Why:** Fast I/O performance, excellent for API orchestration, and supported by a large ecosystem.  
+  **Trade-off:** Less type safety than Java/C# (mitigated with TypeScript).
 
-💡 *Tip:* Maintain OpenAPI specs for API consistency.
+- 🐍 **Python / FastAPI** — *Journey Planning Service*  
+  **Why:** Superior data science libraries for calculations, async support, and rapid development.  
+  **Trade-off:** Different runtime from Node services (acceptable for a specialized service).
+
+- ☕ **Java / Spring Boot** — *Booking Management Service*  
+  **Why:** Strong transactional guarantees, mature payment integration libraries, and enterprise-grade reliability.  
+  **Trade-off:** Heavier resource footprint (justified for critical booking logic).
+
+---
+
+#### 🗄️ Data Stores
+
+- 🐘 **PostgreSQL:** ACID compliance for bookings, proven reliability, and excellent geospatial support.  
+- 📦 **NoSQL:** Flexible schemas, high scalability, high performance, and the ability to handle diverse data types.  
+- ⚡ **Redis:** Sub-millisecond response times for ETAs and flight data, with pub/sub capabilities.  
+- 🔄 **Kafka:** Scalable event streaming, replay capabilities, and exactly-once semantics.
+
+---
+
+#### 📱 Mobile
+
+- ⚛️ **React Native:** Single codebase for iOS and Android, fast iteration cycles, and access to a large talent pool.
+
+---
+
+#### 🧩 Summary Table
+
+| Category | Technology | Purpose / Why | Trade-off |
+|-----------|-------------|----------------|-------------|
+| 🟩 **Backend** | **Node.js / Express** | Fast I/O, great for APIs, large ecosystem | Less type safety (mitigated with TypeScript) |
+| 🐍 **Backend** | **Python / FastAPI** | Data science support, async, fast development | Different runtime from Node services |
+| ☕ **Backend** | **Java / Spring Boot** | Strong transactions, mature libraries, enterprise-grade | Heavier resource footprint |
+| 🐘 **Data Store** | **PostgreSQL** | Reliable, ACID-compliant, geospatial support | Heavier setup and management overhead |
+| 📦 **Data Store** | **NoSQL** | Flexible schema, high scalability, high performance | Eventual consistency in some cases |
+| ⚡ **Data Store** | **Redis** | Ultra-fast cache and pub/sub messaging | In-memory cost for large datasets |
+| 🔄 **Data Store** | **Kafka** | Stream processing, replayable, scalable | Operational complexity |
+| ⚛️ **Mobile** | **React Native** | Cross-platform, fast iteration, large talent pool | Occasional platform-specific limitations |
 
 ---
 
