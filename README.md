@@ -459,14 +459,65 @@ Certain features were intentionally deferred from the MVP (Minimum Viable Produc
 
 ---
 
-## ⚙️ Technical Shortcuts & Mitigation
+## ⚡ Technical Shortcuts & Mitigation
 
-| Shortcut | Risk | Mitigation |
-|-----------|------|-------------|
-| REST between services | Coupling | Move to event-driven Kafka |
-| Single region deploy | Outage | Multi-region replicas |
-| Manual scaling | Inefficiency | Kubernetes HPA |
-| Limited tests | Regression | Add integration + chaos tests |
+Several technical shortcuts were intentionally taken for the MVP to accelerate delivery and reduce complexity.  
+Each shortcut has a defined mitigation path to transition toward production-grade robustness.
+
+---
+
+### 🔄 1️⃣ Synchronous Service Communication  
+**Shortcut:** Initial implementation uses REST calls between services.  
+**Risk:** Tight coupling, cascading failures, and latency accumulation.  
+
+**Mitigation Path:**  
+- Phase 1 (MVP): REST with circuit breakers and timeouts.  
+- Phase 2 (6 months): Migrate critical paths to asynchronous events.  
+- Phase 3 (12 months): Transition to a fully event-driven architecture.  
+
+---
+
+### 🌍 2️⃣ Single Region Deployment  
+**Shortcut:** Deploy to a single AWS region initially.  
+**Risk:** Regional outages could affect all users and cause higher latency for distant users.  
+
+**Mitigation Path:**  
+- Phase 1: Deploy to EU-West-1.  
+- Phase 2: Add read replicas in other regions.  
+- Phase 3: Implement multi-region active-active deployment with geo-routing.  
+
+---
+
+### 📈 3️⃣ Manual Scaling  
+**Shortcut:** Start with manual capacity planning.  
+**Risk:** Inability to handle sudden traffic spikes and inefficient resource utilisation.  
+
+**Mitigation Path:**  
+- Phase 1: Conservative over-provisioning.  
+- Phase 2: Introduce horizontal pod autoscaling (HPA) in Kubernetes.  
+- Phase 3: Implement predictive autoscaling based on historical usage patterns.  
+
+---
+
+### 🧪 4️⃣ Limited Test Coverage  
+**Shortcut:** Focus primarily on critical path testing for MVP.  
+**Risk:** Potential for bugs in edge cases and regression issues.  
+
+**Mitigation Path:**  
+- Phase 1: Achieve 70% code coverage on critical services.  
+- Phase 2: Add integration and contract tests.  
+- Phase 3: Implement full end-to-end (E2E) testing coverage.  
+
+---
+
+### 🧩 Summary Table
+
+| Category | Shortcut | Risk | Mitigation Phases |
+|-----------|-----------|------|-------------------|
+| 🔄 Communication | Synchronous REST calls | Tight coupling, cascading failures | Phase 1: REST + timeouts → Phase 2: Async events → Phase 3: Event-driven |
+| 🌍 Deployment | Single AWS region | Regional outage, latency issues | Phase 1: EU-West-1 → Phase 2: Read replicas → Phase 3: Multi-region |
+| 📈 Scaling | Manual capacity planning | Traffic spikes, inefficiency | Phase 1: Over-provision → Phase 2: HPA → Phase 3: Predictive autoscaling |
+| 🧪 Testing | Limited test coverage | Bugs, regressions | Phase 1: 70% critical → Phase 2: Integration → Phase 3: Full E2E |
 
 ---
 
