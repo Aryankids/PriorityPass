@@ -155,7 +155,7 @@ Our backend architecture uses a polyglot design, selecting the most suitable lan
 
 ---
 
-## 🧱 T-Shirt Sizing - Container Diagram Components
+## 🧱 T-Shirt Sizing – Container Diagram Components
 
 ### 💻 Client Applications
 
