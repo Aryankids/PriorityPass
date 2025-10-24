@@ -12,13 +12,16 @@
 6. [🧠 C4 Architecture](#-c4-architecture)  
 7. [🏗️ Architecture Overview](#️-architecture-overview)
 8. [🧱 T-Shirt Sizing – Container Diagram Components](#t-shirt-sizing--container-diagram-components)
-10. [🧮 Core Components Deep Dive](#-core-components-deep-dive)  
-11. [🔐 PCI Compliance Strategy](#-pci-compliance-strategy)  
-12. [🕒 Deferred Features (MVP Exclusions)](#-deferred-features-mvp-exclusions)  
-13. [⚡ Technical Shortcuts & Mitigation](#️-technical-shortcuts--mitigation)  
-14. [🚀 Scalability Plan](#-scalability-plan)  
-15. [⚠️ Risk Assessment](#️-risk-assessment)  
-16. [🤖 AI Tool Usage Reflection](#-ai-tool-usage-reflection)  
+9. [🧱 T-Shirt Sizing – Container Diagram Components](#t-shirt-sizing--container-diagram-components)
+10. [🧱 T-Shirt Sizing – Container Diagram Components](#t-shirt-sizing-container-diagram-components)
+
+11. [🧮 Core Components Deep Dive](#-core-components-deep-dive)  
+12. [🔐 PCI Compliance Strategy](#-pci-compliance-strategy)  
+13. [🕒 Deferred Features (MVP Exclusions)](#-deferred-features-mvp-exclusions)  
+14. [⚡ Technical Shortcuts & Mitigation](#️-technical-shortcuts--mitigation)  
+15. [🚀 Scalability Plan](#-scalability-plan)  
+16. [⚠️ Risk Assessment](#️-risk-assessment)  
+17. [🤖 AI Tool Usage Reflection](#-ai-tool-usage-reflection)  
 
 ---
 
