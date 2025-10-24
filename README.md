@@ -261,6 +261,7 @@ Our backend architecture uses a polyglot design, selecting the most suitable lan
 - Real-time calculations under performance constraints (< 1s response).  
 - Handles complex edge cases (flight delays, traffic spikes, gate changes).  
 - Caching strategy must balance freshness and performance.  
+
 **Key Algorithm**
 ```
 Pickup Time = Flight Departure 
@@ -292,22 +293,79 @@ Pickup Time = Flight Departure
 ---
 
 ## 🔐 PCI Compliance Strategy
-Achieved via **tokenization** and **scope reduction**.
 
-| Step | Approach | Notes |
-|------|-----------|-------|
-| No Card Data | Stripe-hosted forms | Tokenization |
-| Network Segmentation | Isolated VPC | Restrict credentials |
-| Encryption | TLS 1.3 + KMS | Key rotation |
-| Audit Logging | Immutable (Splunk) | 1-year retention |
-| Access Control | RBAC + MFA | Least privilege |
-| Reduced Scope | Tokenization | SAQ-A compliance |
+Payment Card Industry Data Security Standard (PCI DSS) compliance is achieved through tokenisation and scope reduction, ensuring no direct handling of sensitive payment data within our infrastructure.
 
-**Validation Activities**
-- Annual PCI audit  
+---
+
+### 🧩 Implementation Approach
+
+#### 1️⃣ No Direct Card Data Handling
+- Strategy: Never handle raw card data in our systems.  
+- Implementation: Use a PCI-compliant payment gateway (e.g., Stripe) with hosted payment pages.  
+- Flow:  
+  1. The user enters payment information directly on the gateway-hosted form (not our UI).  
+  2. The gateway returns a secure token.  
+  3. The Booking Service stores only the token.  
+  4. Charges are made using tokens, never raw card data.  
+
+---
+
+#### 2️⃣ Network Segmentation
+- The Booking Management Service operates in an isolated network segment.  
+- All payment-related API calls use a separate VPC with restricted access.  
+- Only the Booking Service communicates with the payment gateway.  
+- No other services possess payment gateway credentials.  
+
+---
+
+#### 3️⃣ Data Encryption
+- At Rest: Encryption for all database records containing sensitive data.  
+- In Transit: TLS 1.3 for all API communications.  
+- Key Management: AWS KMS Vault handles automatic key rotation and secure storage.  
+
+---
+
+#### 4️⃣ Audit Logging
+- Every payment-related action is logged with an immutable audit trail.  
+- Logs include: user ID, timestamp, action, IP address, and result.  
+- Logs are stored in a separate, security-focused data store (e.g., Splunk or CloudWatch).  
+- Retention: Minimum of 1 year for PCI compliance.  
+
+---
+
+#### 5️⃣ Access Controls
+- RBAC (Role-Based Access Control) enforces the principle of least privilege.  
+- MFA (Multi-Factor Authentication) is required for all production access.  
+- Regular access reviews and automated deprovisioning ensure continued compliance.  
+
+---
+
+#### 6️⃣ Reduced PCI Scope
+By tokenising immediately and never storing card data, only the payment gateway (already PCI Level 1 certified) handles sensitive data.  
+Our infrastructure is reduced to the SAQ-A scope, the simplest PCI self-assessment questionnaire, rather than a full PCI audit.
+
+---
+
+### 🛡️ Compliance Validation
+- Annual third-party security audits  
 - Quarterly vulnerability scans  
-- Pen tests pre-release  
-- Staff security training  
+- Penetration testing before major releases  
+- Regular staff security awareness training  
+
+---
+
+### 📋 Summary Table
+
+| Category | Control Area | Key Measures | Tools / Frameworks | Impact |
+|-----------|---------------|---------------|--------------------|---------|
+| 🔐 Data Handling | No Direct Card Data | Tokenization via hosted gateway | Stripe (PCI L1) | Removes card data from scope |
+| 🌐 Network Security | Network Segmentation | Isolated VPC for payment flows | AWS VPC | Limits access to payment services |
+| 🔑 Encryption | Data at Rest / In Transit | TLS 1.3, AWS KMS rotation | AWS KMS, PostgreSQL | Ensures confidentiality |
+| 🧾 Audit Logging | Immutable Audit Trail | Log every transaction action | Splunk / CloudWatch | Enables traceability |
+| 👥 Access Control | RBAC + MFA | Least privilege, MFA enforced | IAM, SSO | Prevents unauthorized access |
+| 🧩 Scope Reduction | Tokenization | Gateway handles sensitive data | Stripe / PCI DSS | Reduces compliance scope |
+| 🧪 Validation | Continuous Compliance | Audits, scans, pentests, training | Third-party auditors | Maintains PCI DSS assurance |
 
 ---
 
