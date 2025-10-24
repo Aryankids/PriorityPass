@@ -541,7 +541,7 @@ This section outlines the scalability planning for the system, detailing the cur
 
 #### 🧱 Horizontal Scaling
 All services are designed as stateless containers, enabling elastic scaling based on demand:
-- Scale Journey Planning Service: 3–10 pods based on CPU utilization.  
+- Scale Journey Planning Service: 3–10 pods based on CPU utilisation.  
 - Scale Integration Service: 2–8 pods based on request queue depth.  
 - Database: Use read replicas for query load and implement connection pooling.  
 
@@ -555,8 +555,8 @@ A three-tier caching model ensures performance and reduced load on backend syste
 
 ---
 
-#### 🗄️ Database Optimization
-Optimizations designed for high-throughput workloads and sustainable growth:
+#### 🗄️ Database Optimisation
+Optimisations designed for high-throughput workloads and sustainable growth:
 - Indexing Strategy: Index all foreign keys and frequently queried fields.  
 - Partitioning: Bookings table partitioned by month for faster access.  
 - Archival: Move bookings older than 6 months to cold storage.  
@@ -577,7 +577,7 @@ Target metrics to maintain reliable performance under increasing loads:
 | Category | Area | Key Details | Objective |
 |-----------|------|--------------|------------|
 | ⚙️ MVP Capacity | System Load | 100 K MAU, 500 concurrent bookings, 1 K RPS, 10 TB/year | Baseline capacity for MVP |
-| 🧱 Horizontal Scaling | Containers | Stateless services (3–10 pods / CPU, 2–8 pods / queue) | Enable elastic scaling |
+| 🧱 Horizontal Scaling | Containers | Stateless services (3–10 pods / CPU, 2–8 pods/queue) | Enable elastic scaling |
 | ⚡ Caching | Multi-Level Cache | L1 (1 min), L2 (5 min), L3 (24 h CDN) | Reduce backend load |
 | 🗄️ Database | Optimization | Indexing, partitioning, archival > 6 months | Improve query efficiency |
 | ⏱️ Performance | Targets | p95 < 500 ms, p99 < 1 s, ETA 60 s | Maintain high performance |
@@ -587,48 +587,65 @@ Target metrics to maintain reliable performance under increasing loads:
 ---
 
 ## ⚠️ Risk Assessment
+## ⚠️ Risk Assessment
+
+The following risks have been identified for both technical and business areas of the system. Each includes assessed probability, impact, and corresponding mitigation strategies.
+
+---
+
+### 🧠 Technical Risks
 
 | Risk | Probability | Impact | Mitigation |
 |------|--------------|---------|-------------|
-| External API failures | Medium | High | Circuit breakers, fallback |
-| Payment downtime | Low | Critical | Multi-gateway fallback |
-| Traffic miscalculation | Medium | Critical | Conservative buffers |
-| DB performance degradation | Medium | High | Read replicas |
-| Taxi API breakage | Medium | High | Abstraction layer |
-| Regulatory gaps | Medium | Medium | Legal vetting |
+| External API reliability (flights, maps) | Medium | High | Circuit breakers, fallback data, SLA monitoring |
+| Payment gateway downtime | Low | Critical | Multiple payment providers, retry queue |
+| Traffic miscalculation leading to missed flights | Medium | Critical | Conservative buffers, real-time adjustments, insurance partnership |
+| Database performance degradation | Medium | High | Connection pooling, read replicas, query optimization |
+| Third-party taxi API integration breaks | Medium | High | Abstraction layer, multiple taxi providers, health checks |
+
+---
+
+### 💼 Business Risks
+
+| Risk | Probability | Impact | Mitigation |
+|------|--------------|---------|-------------|
+| User adoption lower than expected | Medium | High | Incentives, marketing, seamless UX |
+| Taxi provider partnership issues | Low | Critical | Multiple provider contracts, backup options |
+| Regulatory compliance (taxi licensing) | Medium | Medium | Legal review by market, partner with licensed operators |
 
 ---
 
 ## 🤖 AI Tool Usage Reflection
 
-**Tools Used**
-- ChatGPT / Claude — architecture drafts & documentation  
-- Builder.io — Next.js prototype scaffolding  
-
-**What Worked**
-- Fast UI prototyping  
-- Structured documentation  
-- Edge-case brainstorming  
-
-**Human Oversight Needed**
-- Tech stack decisions  
-- Business prioritization  
-- PCI & compliance validation  
+This section reflects on how AI tools were integrated during development — highlighting what worked well, where human judgment was essential, and best practices learned throughout the process.
 
 ---
 
-## 📚 Best Practices Learned
-- Use AI for scaffolding; apply human validation.  
-- Benchmark AI-generated architecture against production realities.  
-- Apply **human judgment** to business, compliance, and trade-offs.  
-- Maintain this README as a **living document** — update it after each release.  
+### 🧰 Tools Used
+- ChatGPT / Claude: Architecture brainstorming, diagram syntax, documentation structure.  
+- Builder.io: Code scaffolding for Next.js components.  
 
 ---
 
-✅ **Ready for GitHub:**  
-- Full sections preserved  
-- Linked Table of Contents  
-- Friendly icons  
-- Tables + algorithms formatted cleanly  
+### 🚀 What Worked Well
+- Rapid prototyping: Generated React UI in 30 minutes vs. 3+ hours of manual coding.  
+- Documentation templates: Structured README format suggestions saved time.  
+- Edge case identification: AI suggested scenarios that hadn’t been considered (e.g., flight cancellations, traffic anomalies).  
+
+---
+
+### 🧠 What Required Human Judgment
+- Technology choices: AI suggested trendy but inappropriate technologies (e.g., GraphQL when REST was sufficient).  
+- Business logic: Travel time buffer calculations required domain expertise.  
+- Security decisions: PCI compliance strategy demanded regulatory understanding beyond AI capabilities.  
+- Trade-off decisions: AI couldn’t weigh business priorities (e.g., speed to market vs. feature scope).  
+
+---
+
+### 💡 Best Practices Learned
+1. Use AI for boilerplate tasks but apply human judgment for critical decisions.  
+2. Validate AI-generated architecture against real-world constraints.  
+3. Don’t accept AI suggestions blindly — pressure test assumptions.  
+4. AI excels at structured outputs (diagrams, code) but struggles with nuanced trade-offs.  
 
 ---
