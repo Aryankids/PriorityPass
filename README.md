@@ -77,6 +77,11 @@ Shows interactions between:
 - Taxi App API
 - Priority Pass Platform
 - Payment Gateway
+
+<p align="center">
+  <img src="diagrams/Context.svg" alt="Context Diagram" width="800px">
+</p>
+
 ![Context Diagram](diagrams/Context.svg)
 
 ### 🧰 Container Diagram
