@@ -26,7 +26,7 @@ It includes **two documentation tracks** depending on your role and desired dept
 | Folder | Description |
 |---------|--------------|
 | `diagrams/` | C4 diagrams (Context, Container, Component). |
-| `src/` | Prototype snippets and implementation examples (Next.js, FastAPI, Spring Boot). |
+| `src/` | Prototype snippets and implementation examples (Next.js) |
 
 ---
 
