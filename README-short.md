@@ -12,22 +12,22 @@ The system enables unified travel planning, real-time ETA/EDT adjustments, and a
 ## 🧠 C4 Architecture Overview  
 
 ### 🗺️ Context Diagram  
-![Context Diagram](./diagrams/context.png)  
+![Context Diagram](./diagrams/C4 model example - Context.svg)  
 **Participants:** Passengers, Priority Pass Platform, Taxi App API, and Payment Gateway.  
 
 ### 🧰 Container Diagram  
-![Container Diagram](./diagrams/container.png)  
+![Container Diagram](./diagrams/C4 model example - Contain.svg)  
 **Key Containers:**  
 - **API Gateway:** Manages authentication, routing, and rate limiting.  
 - **Core Microservices:** Journey Planner, Booking, Inventory, User Management.  
 - **Data Stores:** PostgreSQL, Redis, MongoDB, Kafka (event streaming).  
 
 ### 🔧 Component Diagram (Journey Planner)  
-![Component Diagram](./diagrams/component.png)  
+![Component Diagram](./diagrams/C4 model example - Comp.svg)  
 **Responsibilities:**  
 - Real-time ETA/ETD calculation  
 - Flight + Traffic API integration  
-- Caching tiers and buffer optimization  
+- Caching tiers and buffer optimisation  
 
 ---
 
@@ -68,7 +68,7 @@ The system enables unified travel planning, real-time ETA/EDT adjustments, and a
 | Data Handling | Tokenization | Stripe (PCI L1) | No raw card data |
 | Network | Segmented VPC | AWS VPC | Isolates payment traffic |
 | Encryption | TLS 1.3, AWS KMS | PostgreSQL | Confidentiality |
-| Logging | Immutable Audit Trail | CloudWatch / Splunk | Traceability |
+| Logging | Immutable Audit Trail | CloudWatch | Traceability |
 | Access | RBAC + MFA | IAM, SSO | Least privilege |
 | Scope | SAQ-A Reduction | Stripe | Simplified compliance |
 | Validation | Audits & Pentests | 3rd Party | Maintains assurance |
