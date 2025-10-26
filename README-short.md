@@ -12,18 +12,27 @@ The system enables unified travel planning, real-time ETA/EDT adjustments, and a
 ## 🧠 C4 Architecture Overview  
 
 ### 🗺️ Context Diagram  
-![Context Diagram](./diagrams/C4 model example - Context.svg)  
+<p align="center">
+  <img src="diagrams/C4 model example - Context.svg" alt="Context Diagram" width="400px">
+</p>
+
 **Participants:** Passengers, Priority Pass Platform, Taxi App API, and Payment Gateway.  
 
 ### 🧰 Container Diagram  
-![Container Diagram](./diagrams/C4 model example - Contain.svg)  
+<p align="center">
+  <img src="diagrams/C4 model example - Contain.svg" alt="Context Diagram" width="800px">
+</p>
+
 **Key Containers:**  
 - **API Gateway:** Manages authentication, routing, and rate limiting.  
 - **Core Microservices:** Journey Planner, Booking, Inventory, User Management.  
 - **Data Stores:** PostgreSQL, Redis, MongoDB, Kafka (event streaming).  
 
 ### 🔧 Component Diagram (Journey Planner)  
-![Component Diagram](./diagrams/C4 model example - Comp.svg)  
+<p align="center">
+  <img src="diagrams/C4 model example - Comp.svg" alt="Context Diagram" width="800px">
+</p>
+
 **Responsibilities:**  
 - Real-time ETA/ETD calculation  
 - Flight + Traffic API integration  
