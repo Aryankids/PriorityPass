@@ -17,7 +17,7 @@ It includes **two documentation tracks** depending on your role and desired dept
 | Audience | File | Description |
 |-----------|------|--------------|
 | 🧠 **Architects / Engineers** | [README (Detailed).md](./README-final.md) | Comprehensive architecture documentation — includes full system design, service breakdowns, PCI compliance strategy, scalability roadmap, risk register, and technical deep dives with C4 diagrams. |
-| ⚡ **Product / Stakeholders** | [README-short.md](./README-short.md) | Executive summary — concise overview of the system, architecture, and key decisions, with embedded C4 diagrams for quick visualisation. |
+| ⚡ **Product / Stakeholders** | [README (Short).md](./README-short.md) | Executive summary — concise overview of the system, architecture, and key decisions, with embedded C4 diagrams for quick visualisation. |
 
 ---
 
