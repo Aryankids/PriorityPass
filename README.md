@@ -16,8 +16,8 @@ It includes **two documentation tracks** depending on your role and desired dept
 
 | Audience | File | Description |
 |-----------|------|--------------|
-| 🧠 **Architects / Engineers** | [README (Detailed).md](./README%20(3).md) | Comprehensive architecture documentation — includes full system design, service breakdowns, PCI compliance strategy, scalability roadmap, risk register, and technical deep dives with C4 diagrams. |
-| ⚡ **Product / Stakeholders** | [README-short.md](./README-short.md) | Executive summary — concise overview of the system, architecture, and key decisions, with embedded C4 diagrams for quick visualization. |
+| 🧠 **Architects / Engineers** | [README (Detailed).md](./README-final.md) | Comprehensive architecture documentation — includes full system design, service breakdowns, PCI compliance strategy, scalability roadmap, risk register, and technical deep dives with C4 diagrams. |
+| ⚡ **Product / Stakeholders** | [README-short.md](./README-short.md) | Executive summary — concise overview of the system, architecture, and key decisions, with embedded C4 diagrams for quick visualisation. |
 
 ---
 
@@ -27,8 +27,6 @@ It includes **two documentation tracks** depending on your role and desired dept
 |---------|--------------|
 | `diagrams/` | C4 diagrams (Context, Container, Component). |
 | `src/` | Prototype snippets and implementation examples (Next.js, FastAPI, Spring Boot). |
-| `docs/` | Additional design rationale, API references, and compliance notes. |
-| `tests/` | Test scripts and integration coverage notes. |
 
 ---
 
@@ -36,8 +34,8 @@ It includes **two documentation tracks** depending on your role and desired dept
 
 - **Goal:** Seamless traveller journey from taxi booking to lounge entry.  
 - **Architecture:** Event-driven microservices (Node.js, Python, Java).  
-- **Compliance:** PCI-DSS SAQ-A scope using tokenized payments.  
-- **Scalability:** Horizontally scalable, 3-tier caching, multi-region ready.  
+- **Compliance:** PCI-DSS SAQ-A scope using tokenised payments.  
+- **Scalability:** Horizontally scalable, caching, multi-region ready.  
 - **Design Philosophy:** Platform-agnostic, security-first, extensible for ML.  
 
 ---
@@ -45,17 +43,8 @@ It includes **two documentation tracks** depending on your role and desired dept
 ## 🚀 How to Use
 
 1. **Start with** the [Short Summary README](./README-short.md) for an overview.  
-2. **Dive deeper** into the [Detailed README](./README%20(3).md) to explore technical specifics.  
+2. **Dive deeper** into the [Detailed README](./README-final.md) to explore technical specifics.  
 3. **Follow diagrams** in `/diagrams` for visual understanding of architecture layers.  
-
----
-
-## 📎 Versioning
-
-| Version | Date | Notes |
-|----------|------|-------|
-| `v1.0` | Initial release | MVP integration with one taxi partner. |
-| `v1.1` | Planned | Add ML-driven ETA, multi-currency, and monitoring improvements. |
 
 ---
 
